@@ -85,8 +85,13 @@ export default function V1() {
       totalPoints += GPAtable[subject.level] * subject.credit;
     });
 
-    setsumCredit(totalCredits);
-    setGPA(parseFloat((totalPoints / totalCredits).toFixed(2)));
+    if (totalCredits > 0) {
+      setsumCredit(totalCredits);
+      setGPA(parseFloat((totalPoints / totalCredits).toFixed(2)));
+    } else {
+      setsumCredit(0);
+      setGPA(0);
+    }
   }, [subjects]);
 
   return (

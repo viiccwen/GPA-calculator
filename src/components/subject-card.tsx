@@ -37,8 +37,13 @@ export function SubjectCard({
 
   const UpdatedCredit = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newCredit = parseInt(e.target.value);
-    setcurCredit(newCredit);
-    onChangeCredit(newCredit);
+    if (newCredit < 0) {
+      setcurCredit(0);
+      onChangeCredit(0);
+    } else {
+      setcurCredit(newCredit);
+      onChangeCredit(newCredit);
+    }
   };
 
   const UpdatedLevel = (newLevel: string) => {
