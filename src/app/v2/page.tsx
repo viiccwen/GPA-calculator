@@ -94,6 +94,7 @@ export default function V2() {
             <div className="mt-[50px] grid grid-cols-3 gap-3">
               {LevelArray.map((LevelItem, index) => (
                 <InputItem
+                  key={index}
                   target={LevelItem.level}
                   onChangeCount={(updatedCount) =>
                     HandleChangeCount(index, updatedCount)
