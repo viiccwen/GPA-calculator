@@ -21,3 +21,4 @@
 
 - 2023/12/28 - v1 雛形
 - 2023/12/29 - v2 雛形
+- 2023/12/31 - [修復bug](https://github.com/viiccwen/GPA-calculator/issues/1): 錯誤引用index而導致的bug和crash 
