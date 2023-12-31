@@ -1,13 +1,11 @@
 "use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import { TransformCaptionDialog } from "@/components/transform-caption-dialog";
 import { PointsCaptionDialog } from "@/components/points-caption-dialog";
 import Navbar from "@/components/navbar";
 import TextInput from "@/components/text-input";
-
-const table = ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F", "X"];
 
 const GPAtable: { [key: string]: number } = {
   "A+": 4.3,
@@ -23,51 +21,25 @@ const GPAtable: { [key: string]: number } = {
   X: 0,
 };
 
-interface Subject {
-  level: string;
-  count: number;
-}
-
-const iniLevelArray: Subject[] = table.map((curlevel) => ({
-  level: curlevel,
-  count: 0,
-}));
-
 export default function V3() {
-  const [LevelArray, setLevelArray] = useState(iniLevelArray);
-  const [sumCredit, setsumCredit] = useState(0);
+  const [sumCredit, setSumCredit] = useState(0);
   const [GPA, setGPA] = useState(0);
 
   const HandleTextChange = (text: string) => {
     const matchGPA = /\t(\d) \t([A-CFX][+_]*)/g;
     const matchResults = Array.from(text.matchAll(matchGPA));
-    const parsedGPA = matchResults.reduce((prev, curr) => {
-      const [_, count, level] = curr;
-      const idx = table.findIndex((item) => item == level);
-      prev[idx].count += parseInt(count);
-      return prev;
-    }, iniLevelArray)
 
-    setLevelArray(parsedGPA);
+    let credits = 0;
+    let points = 0;
+
+    matchResults.forEach(([_, count, level]) => {
+      credits += parseInt(count);
+      points += parseInt(count) * GPAtable[level];
+    })
+
+    setSumCredit(credits);
+    setGPA(points / credits);
   };
-
-  useEffect(() => {
-    let totalCredits = 0;
-    let totalPoints = 0;
-
-    LevelArray.forEach((LevelArray) => {
-      totalCredits += LevelArray.count;
-      totalPoints += GPAtable[LevelArray.level] * LevelArray.count;
-    });
-
-    if (totalCredits > 0) {
-      setsumCredit(totalCredits);
-      setGPA(parseFloat((totalPoints / totalCredits).toFixed(2)));
-    } else {
-      setsumCredit(0);
-      setGPA(0);
-    }
-  }, [LevelArray]);
 
   return (
     <>
