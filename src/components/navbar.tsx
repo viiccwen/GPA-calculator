@@ -10,24 +10,21 @@ import { Link } from "@radix-ui/react-navigation-menu";
 
 export default function Navbar() {
   return (
-    <NavigationMenu className="left-12">
-      <NavigationMenuList className="absolute w-screen grid grid-cols-6 mt-5">
-        <NavigationMenuItem className="col-start-1">
-          <div className=" font-bold">GPA計算機</div>
+    <NavigationMenu>
+      <NavigationMenuList className="w-screen grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6">
+        <NavigationMenuItem>
+          <div className="font-bold text-center">GPA計算機</div>
         </NavigationMenuItem>
-        <NavigationMenuItem className="col-start-2">
-          <Button variant="ghost">
+        <NavigationMenuItem className="text-center">
+          <Button variant="ghost" className="mx-1">
             <Link href="/v1">v1</Link>
           </Button>
-          <Button variant="ghost" className="ml-3">
+          <Button variant="ghost" className="mx-1">
             <Link href="/v2">v2</Link>
           </Button>
         </NavigationMenuItem>
-        <NavigationMenuItem className="col-start-3"></NavigationMenuItem>
-        <NavigationMenuItem className="col-start-6 ">
-          <div className="ml-[50px]">
-            <ModeToggle />
-          </div>
+        <NavigationMenuItem className="text-center lg:col-start-6">
+          <ModeToggle />
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>

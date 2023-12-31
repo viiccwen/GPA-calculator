@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="w-screen h-screen " suppressHydrationWarning>
+    <html lang="en" className="m-5" suppressHydrationWarning>
       <head />
       <body>
         <ThemeProvider

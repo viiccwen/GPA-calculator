@@ -120,25 +120,21 @@ export default function V1() {
     <>
       <Navbar />
 
-      <div className="w-full mt-[100px] flex justify-center items-center">
+      <div className="w-full mt-[50px] flex justify-center items-center">
         <Card className="w-[700px]">
           <CardHeader>
             <CardTitle>臺大系統 GPA 計算機 v1</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-6">
-              <div className=" col-span-1">
-                <TransformCaptionDialog />
-              </div>
-              <div className=" col-span-1">
-                <PointsCaptionDialog />
-              </div>
-              <div className=" col-start-6">
+            <div className="grid grid-cols-3 gap-1 lg:grid-cols-6">
+              <TransformCaptionDialog />
+              <PointsCaptionDialog />
+              <div className="text-center lg:col-start-6">
                 <Button onClick={HandleAddSubject}>新增</Button>
               </div>
             </div>
 
-            <div className="mt-[30px]" id="a">
+            <div className="mt-[30px]">
               總共 {sumCredit} 學分
               <br />
               你的 GPA 為：{GPA.toFixed(2)}
