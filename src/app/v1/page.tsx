@@ -19,8 +19,6 @@ interface Subject {
 
 const iniSubject: Subject[] = [];
 
-let latestId = 0;
-
 const GPAtable: { [key: string]: number } = {
   "A+": 4.3,
   A: 4,
@@ -36,31 +34,37 @@ const GPAtable: { [key: string]: number } = {
 };
 
 export default function V1() {
-  const [subjects, setSubjects] = useState(iniSubject);
+  const [Subjects, setSubjects] = useState(iniSubject);
   const [GPA, setGPA] = useState(0);
   const [sumCredit, setsumCredit] = useState(0);
 
   const HandleAddSubject = () => {
+    const newId =
+      Subjects.length > 0
+        ? Math.max(...Subjects.map((subject) => subject.id)) + 1
+        : 0;
+
     const newSubject = {
-      id: latestId,
+      id: newId,
       name: "",
       credit: 0,
       level: "A+",
     };
-    setSubjects([...subjects, newSubject]);
-
-    latestId++;
+    setSubjects([...Subjects, newSubject]);
   };
 
   const HandleDeleteSubject = (delId: number) => {
-    const updatedSubjects = subjects.filter((subject) => subject.id !== delId);
+    const updatedSubjects = Subjects.filter((subject) => subject.id !== delId);
+
     setSubjects(updatedSubjects);
   };
 
   const HandleChangeName = (id: number, value: string) => {
-    const updatedSubjects = [...subjects];
-    updatedSubjects[id] = {
-      ...updatedSubjects[id],
+    const targetIndex = Subjects.findIndex((Subjects) => Subjects.id === id);
+
+    const updatedSubjects = [...Subjects];
+    updatedSubjects[targetIndex] = {
+      ...updatedSubjects[targetIndex],
       name: value,
     };
 
@@ -68,9 +72,11 @@ export default function V1() {
   };
 
   const HandleChangeCredit = (id: number, value: number) => {
-    const updatedSubjects = [...subjects];
-    updatedSubjects[id] = {
-      ...updatedSubjects[id],
+    const targetIndex = Subjects.findIndex((Subjects) => Subjects.id === id);
+
+    const updatedSubjects = [...Subjects];
+    updatedSubjects[targetIndex] = {
+      ...updatedSubjects[targetIndex],
       credit: value,
     };
 
@@ -78,9 +84,12 @@ export default function V1() {
   };
 
   const HandleChangeLevel = (id: number, value: string) => {
-    const updatedSubjects = [...subjects];
-    updatedSubjects[id] = {
-      ...updatedSubjects[id],
+    const targetIndex = Subjects.findIndex((Subjects) => Subjects.id === id);
+
+    const updatedSubjects = [...Subjects];
+
+    updatedSubjects[targetIndex] = {
+      ...updatedSubjects[targetIndex],
       level: value,
     };
 
@@ -91,7 +100,7 @@ export default function V1() {
     let totalCredits = 0;
     let totalPoints = 0;
 
-    subjects.forEach((subject) => {
+    Subjects.forEach((subject) => {
       totalCredits += subject.credit;
       totalPoints += GPAtable[subject.level] * subject.credit;
     });
@@ -103,7 +112,9 @@ export default function V1() {
       setsumCredit(0);
       setGPA(0);
     }
-  }, [subjects]);
+
+    console.log(Subjects);
+  }, [Subjects]);
 
   return (
     <>
@@ -140,7 +151,7 @@ export default function V1() {
                 <div>等第</div>
                 <div className="mr-5">功能</div>
               </div>
-              {subjects.map((subject) => (
+              {Subjects.map((subject) => (
                 <SubjectCard
                   key={subject.id}
                   name={subject.name}
