@@ -19,6 +19,8 @@ interface Subject {
 
 const iniSubject: Subject[] = [];
 
+let latestId = 0;
+
 const GPAtable: { [key: string]: number } = {
   "A+": 4.3,
   A: 4,
@@ -33,7 +35,6 @@ const GPAtable: { [key: string]: number } = {
   X: 0,
 };
 
-let latestId = 0;
 export default function V1() {
   const [subjects, setSubjects] = useState(iniSubject);
   const [GPA, setGPA] = useState(0);
@@ -53,6 +54,16 @@ export default function V1() {
 
   const HandleDeleteSubject = (delId: number) => {
     const updatedSubjects = subjects.filter((subject) => subject.id !== delId);
+    setSubjects(updatedSubjects);
+  };
+
+  const HandleChangeName = (id: number, value: string) => {
+    const updatedSubjects = [...subjects];
+    updatedSubjects[id] = {
+      ...updatedSubjects[id],
+      name: value,
+    };
+
     setSubjects(updatedSubjects);
   };
 
@@ -141,6 +152,9 @@ export default function V1() {
                   }
                   onChangeLevel={(newLevel) =>
                     HandleChangeLevel(subject.id, newLevel)
+                  }
+                  onChangeName={(newName) =>
+                    HandleChangeName(subject.id, newName)
                   }
                 />
               ))}

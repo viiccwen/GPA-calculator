@@ -22,6 +22,7 @@ interface Props {
   onDeleteSubject: () => void;
   onChangeCredit: (newCredit: number) => void;
   onChangeLevel: (newLevel: string) => void;
+  onChangeName: (newName: string) => void;
 }
 
 export function SubjectCard({
@@ -31,9 +32,17 @@ export function SubjectCard({
   onDeleteSubject,
   onChangeCredit,
   onChangeLevel,
+  onChangeName,
 }: Props) {
+  const [curName, setcurName] = useState(name);
   const [curLevel, setcurLevel] = useState(level);
   const [curCredit, setcurCredit] = useState(credit);
+
+  const UpdateName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newName = e.target.value;
+    setcurName(newName);
+    onChangeName(newName);
+  };
 
   const UpdatedCredit = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newCredit = parseInt(e.target.value);
@@ -55,7 +64,13 @@ export function SubjectCard({
     <Card className=" mt-5 w-[650px]">
       <CardContent>
         <div className="grid grid-cols-4 gap-3 mt-2">
-          <Input defaultValue={name} />
+          <Input
+            type="text"
+            defaultValue={curName}
+            onChange={(e) => {
+              UpdateName(e);
+            }}
+          />
           <Input
             type="number"
             min="0"
