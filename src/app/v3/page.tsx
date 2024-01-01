@@ -6,6 +6,7 @@ import { TransformCaptionDialog } from "@/components/transform-caption-dialog";
 import { PointsCaptionDialog } from "@/components/points-caption-dialog";
 import Navbar from "@/components/navbar";
 import TextInput from "@/components/text-input";
+import UsingCaptionDialog from "@/components/using-caption-dialog";
 
 const GPAtable: { [key: string]: number } = {
   "A+": 4.3,
@@ -36,10 +37,11 @@ export default function V3() {
     matchResults.forEach(([_, count, level]) => {
       credits += parseInt(count);
       points += parseInt(count) * GPAtable[level];
-    })
+    });
 
     setSumCredit(credits);
-    setGPA(points / credits);
+
+    setGPA(parseFloat((points / credits).toFixed(2)));
   };
 
   return (
@@ -55,16 +57,17 @@ export default function V3() {
             <div className="grid grid-cols-3 gap-1 lg:grid-cols-6">
               <TransformCaptionDialog />
               <PointsCaptionDialog />
+              <UsingCaptionDialog />
             </div>
 
-            <div className="mt-[30px]" id="a">
+            <div className="mt-[30px] mb-3" id="a">
               總共 {sumCredit} 學分
               <br />
               你的 GPA 為：{GPA}
             </div>
 
             <TextInput
-              label="Paste your gpa here:"
+              label="在此貼上成績查詢系統的成績單："
               value={userInput}
               onChange={(text) => {
                 setUserInput(text);

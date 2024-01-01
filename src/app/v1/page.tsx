@@ -122,7 +122,7 @@ export default function V1() {
       <div className="w-full mt-[50px] flex justify-center items-center">
         <Card className="w-[700px]">
           <CardHeader>
-            <CardTitle>GPA 計算機 v1</CardTitle>
+            <CardTitle>臺大系統 GPA 計算機 v1</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-3 gap-1 lg:grid-cols-6">

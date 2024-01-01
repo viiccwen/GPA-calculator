@@ -3,13 +3,12 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/footer";
-import Navbar from "@/components/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "GPA 計算機",
-  description: "GPA Calculator for 4.3 points.",
+  title: "臺大系統 GPA 計算機",
+  description: "GPA Calculator for NTU system",
 };
 
 export default function RootLayout({

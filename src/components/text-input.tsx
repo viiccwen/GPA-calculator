@@ -13,6 +13,7 @@ export default function TextInput({ label, value, onChange }: Props) {
       <div>
         <Label htmlFor={label}>{label}</Label>
         <TextArea
+          rows={16}
           value={value}
           onChange={(e) => {
             onChange(e.target.value);
