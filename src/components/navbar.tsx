@@ -6,14 +6,17 @@ import {
 
 import { ModeToggle } from "@/components/mode-toggle";
 import { Button } from "./ui/button";
-import { Link } from "@radix-ui/react-navigation-menu";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <NavigationMenu>
-      <NavigationMenuList className="w-screen grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6">
+    <NavigationMenu className="mt-3">
+      <NavigationMenuList className="w-screen grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
         <NavigationMenuItem>
-          <div className="font-bold text-center">GPA計算機</div>
+          <div className="flex justify-center items-center gap-2">
+            <img src="/icon.png" alt="icon" className="size-9" />
+            <div className="font-bold">GPA計算機</div>
+          </div>
         </NavigationMenuItem>
         <NavigationMenuItem className="text-center">
           <Button variant="ghost" className="mx-1">
@@ -26,7 +29,7 @@ export default function Navbar() {
             <Link href="/v3">v3</Link>
           </Button>
         </NavigationMenuItem>
-        <NavigationMenuItem className="text-center lg:col-start-6">
+        <NavigationMenuItem className="text-center col-start-3 sm:grid-cols-4 md:col-start-5 lg:col-start-6">
           <ModeToggle />
         </NavigationMenuItem>
       </NavigationMenuList>
