@@ -25,9 +25,6 @@ export default function Navbar() {
           <Button variant="ghost" className="mx-1">
             <Link href="/v2">v2</Link>
           </Button>
-          <Button variant="ghost" className="mx-1">
-            <Link href="/v3">v3</Link>
-          </Button>
         </NavigationMenuItem>
         <NavigationMenuItem className="text-center col-start-3 sm:grid-cols-4 md:col-start-5 lg:col-start-6">
           <ModeToggle />
