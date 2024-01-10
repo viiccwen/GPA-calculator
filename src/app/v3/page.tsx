@@ -18,6 +18,8 @@ const GPAtable: { [key: string]: number } = {
   "C+": 2.3,
   C: 2.0,
   "C-": 1.7,
+  D: 1.0,
+  E: 0,
   F: 0,
   X: 0,
 };
@@ -51,7 +53,7 @@ export default function V3() {
       <div className="w-full mt-[50px] flex justify-center items-center">
         <Card className="w-[700px]">
           <CardHeader>
-            <CardTitle>臺大系統 GPA 計算機 v3</CardTitle>
+            <CardTitle>臺科大 GPA 計算機 v3</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-3 gap-1 lg:grid-cols-6">

@@ -7,8 +7,8 @@ import Footer from "@/components/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "臺大系統 GPA 計算機",
-  description: "GPA Calculator for NTU system",
+  title: "臺科大 GPA 計算機",
+  description: "GPA Calculator for NTUST",
 };
 
 export default function RootLayout({

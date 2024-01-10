@@ -1,6 +1,6 @@
 <div align="center">
 
-# 臺大系統 GPA 計算機
+# 臺科大 GPA 計算機
 
   <img width="200" src="src/app/icon.png" alt="logo">
 
@@ -46,3 +46,6 @@
 - 2024/01/01
   - 新增 v3 (Thanks for @BWsix)
   - 新增個人資訊
+- 2024/01/10
+  - 更名為：「臺科大 GPA 計算機」
+  - 修改 GPA 計算方式（新增 D, E）

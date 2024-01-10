@@ -7,7 +7,21 @@ import { PointsCaptionDialog } from "@/components/points-caption-dialog";
 import Navbar from "@/components/navbar";
 import InputItem from "@/components/input-item";
 
-const table = ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F", "X"];
+const table = [
+  "A+",
+  "A",
+  "A-",
+  "B+",
+  "B",
+  "B-",
+  "C+",
+  "C",
+  "C-",
+  "D",
+  "E",
+  "F",
+  "X",
+];
 
 const GPAtable: { [key: string]: number } = {
   "A+": 4.3,
@@ -19,6 +33,8 @@ const GPAtable: { [key: string]: number } = {
   "C+": 2.3,
   C: 2.0,
   "C-": 1.7,
+  D: 1.0,
+  E: 0,
   F: 0,
   X: 0,
 };
@@ -73,7 +89,7 @@ export default function V2() {
       <div className="w-full mt-[50px] flex justify-center items-center">
         <Card className="w-[700px]">
           <CardHeader>
-            <CardTitle>臺大系統 GPA 計算機 v2</CardTitle>
+            <CardTitle>臺科大 GPA 計算機 v2</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-3 gap-1 lg:grid-cols-6">
