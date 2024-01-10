@@ -40,10 +40,17 @@ export default function V3() {
       credits += parseInt(count);
       points += parseInt(count) * GPAtable[level];
     });
+    setGPA(parseFloat((points / credits).toFixed(2)));
+
+    const matchFreeCredit = /\s(\d)\s*(抵免|通過)/g;
+    const matchFreeCreditResults = Array.from(text.matchAll(matchFreeCredit))
+
+    matchFreeCreditResults.forEach(([_, count, level]) => {
+      credits += parseInt(count);
+    });
 
     setSumCredit(credits);
-
-    setGPA(parseFloat((points / credits).toFixed(2)));
+    
   };
 
   return (
