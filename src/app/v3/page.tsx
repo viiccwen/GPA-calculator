@@ -30,7 +30,7 @@ export default function V3() {
   const [GPA, setGPA] = useState(0);
 
   const HandleTextChange = (text: string) => {
-    const matchGPA = /\s(\d)\s*([ABCFX][+-]*)/g;
+    const matchGPA = /\s(\d)\s*([ABCDEFX][+-]*)/g;
     const matchResults = Array.from(text.matchAll(matchGPA));
 
     let credits = 0;
