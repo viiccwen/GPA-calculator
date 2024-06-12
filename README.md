@@ -16,7 +16,7 @@
 
 ## 如何使用 ❓
 
-### [→ 網址點我 ←](https://gpa-calculator-vert.vercel.app/)
+### [→ 網址點我 ←](https://college-gpacalculator.vercel.app/)
 
 根據積分個數來計算 GPA
 
