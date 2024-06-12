@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
 
-## Getting Started
+# GPA 計算機
 
-First, run the development server:
+  <img width="200" src="public/icon.png" alt="logo">
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+#### 快速計算 GPA，分數太低別怪我...
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+</div>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 特色 🗿
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. 快速計算 GPA
+2. 支援暗黑模式
+3. 支援 RWD
 
-## Learn More
+## 如何使用 ❓
 
-To learn more about Next.js, take a look at the following resources:
+### [→ 網址點我 ←](https://gpa-calculator-vert.vercel.app/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+根據積分個數來計算 GPA
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 相關事項 📣
 
-## Deploy on Vercel
+1. 本專案僅前端，不用擔心你的超高 GPA 會被我看到）x
+2. 本專案是以 GPA 4.3 標準為計算基礎
+3. 有任何蟲可以送 Issues/request 給我，我會感謝你的
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 工具 🛠️
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [NextJS 14](https://nextjs.org/) - 專案框架
+- [TypeScript](https://www.typescriptlang.org/) - 開發語言
+- [shadcn/ui](https://ui.shadcn.com/) - UI 庫
+- [Lucide](https://lucide.dev/) - Icon 庫
+- [Vercel](https://vercel.com/) - 部署平台
+
+## Update Log 更新日誌 👣
+
+- 2023/12/28 - 新增 v1
+- 2023/12/29 - 新增 v2
+- 2023/12/31
+  - [修復 bug](https://github.com/viiccwen/GPA-calculator/issues/1): 錯誤引用 index 而導致的 bug 和 crash
+  - 支持 RWD
+- 2024/01/01
+  - 新增 v3 (Thanks for @BWsix)
+  - 新增個人資訊
+- 2024/01/10
+  - 更名為：「臺科大 GPA 計算機」
+  - 修改 GPA 計算方式（新增 D, E）
+- 2024/06/12
+  - 剔除非必要計分模式(v1, v3)
+  - 將 `npm` 改成 `bun`
+  - 修改 spaghetti code
+  - 修改計分 table 
