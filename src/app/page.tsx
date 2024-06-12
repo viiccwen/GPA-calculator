@@ -1,9 +1,9 @@
-import V1 from "./v1/page";
+import { GPACalculator } from "@/components/customs/gpa-calculator";
 
-export default function App() {
+export default function Home() {
   return (
     <>
-      <V1 />
+      <GPACalculator />
     </>
   );
 }

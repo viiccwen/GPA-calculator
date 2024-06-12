@@ -1,11 +1,13 @@
 "use client";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
 import { useState, useEffect } from "react";
 
-import { TransformCaptionDialog } from "@/components/transform-caption-dialog";
-import { PointsCaptionDialog } from "@/components/points-caption-dialog";
-import Navbar from "@/components/navbar";
-import InputItem from "@/components/input-item";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+import Navbar from "@/components/customs/navbar";
+import { TransformCaptionDialog } from "@/components/customs/transform-caption-dialog";
+import { PointsCaptionDialog } from "@/components/customs/points-cation.dialog";
+import InputItem from "@/components/customs/input-item";
 
 const table = [
   "A+",
@@ -25,18 +27,18 @@ const table = [
 
 const GPAtable: { [key: string]: number } = {
   "A+": 4.3,
-  A: 4,
+  "A": 4,
   "A-": 3.7,
   "B+": 3.3,
-  B: 3.0,
+  "B": 3.0,
   "B-": 2.7,
   "C+": 2.3,
-  C: 2.0,
+  "C": 2.0,
   "C-": 1.7,
-  D: 1.0,
-  E: 0,
-  F: 0,
-  X: 0,
+  "D": 1.0,
+  "E": 0,
+  "F": 0,
+  "X": 0,
 };
 
 interface Subject {
@@ -49,7 +51,7 @@ const iniLevelArray: Subject[] = table.map((curlevel) => ({
   count: 0,
 }));
 
-export default function V2() {
+export const GPACalculator = () => {
   const [LevelArray, setLevelArray] = useState(iniLevelArray);
   const [sumCredit, setsumCredit] = useState(0);
   const [GPA, setGPA] = useState(0);
@@ -89,7 +91,7 @@ export default function V2() {
       <div className="w-full mt-[50px] flex justify-center items-center">
         <Card className="w-[700px]">
           <CardHeader>
-            <CardTitle>臺科大 GPA 計算機 v2</CardTitle>
+            <CardTitle>GPA 計算機</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-3 gap-1 lg:grid-cols-6">
@@ -119,4 +121,4 @@ export default function V2() {
       </div>
     </>
   );
-}
+};

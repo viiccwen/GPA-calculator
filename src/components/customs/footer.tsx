@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Github } from "lucide-react";
 import { CircleUserRound } from "lucide-react";
