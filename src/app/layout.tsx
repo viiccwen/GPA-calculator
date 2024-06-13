@@ -20,6 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/icon.ico" />
+        <meta name="google-site-verification" content="Ak3838t63FqFMkRncTmbaAgUn7RwayAv5nnV2eAzfwo" />
       </head>
       <body className={inter.className}>
         <ThemeProvider
