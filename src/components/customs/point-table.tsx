@@ -79,17 +79,17 @@ import {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[100px]">等第</TableHead>
-            <TableHead>積分</TableHead>
-            <TableHead>百分制分數區間</TableHead>
+            <TableHead className="w-[100px] text-center">等第</TableHead>
+            <TableHead className="text-center">積分</TableHead>
+            <TableHead className="text-center">百分制分數區間</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {points.map((point, index) => (
             <TableRow key={index}>
-              <TableCell className="font-medium">{point.level}</TableCell>
-              <TableCell>{point.credit}</TableCell>
-              <TableCell>{point.grade}</TableCell>
+              <TableCell className="font-medium text-center">{point.level}</TableCell>
+              <TableCell className="text-center">{point.credit}</TableCell>
+              <TableCell className="text-center">{point.grade}</TableCell>
             </TableRow>
           ))}
         </TableBody>
