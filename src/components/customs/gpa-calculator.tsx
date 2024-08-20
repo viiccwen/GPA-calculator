@@ -56,7 +56,7 @@ export const GPACalculator = () => {
   const [sumCredit, setsumCredit] = useState(0);
   const [GPA, setGPA] = useState(0);
 
-  const HandleChangeCount = (id: number, value: number) => {
+  const HandleChangeCount = (id: number, value: number): void => {
     const updatedSubjects = [...LevelArray];
     updatedSubjects[id] = {
       ...updatedSubjects[id],
@@ -67,8 +67,8 @@ export const GPACalculator = () => {
   };
 
   useEffect(() => {
-    let totalCredits = 0;
-    let totalPoints = 0;
+    let totalCredits: number = 0;
+    let totalPoints: number = 0;
 
     LevelArray.forEach((LevelArray) => {
       totalCredits += LevelArray.count;
@@ -88,8 +88,8 @@ export const GPACalculator = () => {
     <>
       <Navbar />
 
-      <div className="w-full mt-[50px] flex justify-center items-center">
-        <Card className="w-[700px]">
+      <div className="w-full mt-[30px] flex justify-center items-center">
+        <Card className="w-[700px] mx-2">
           <CardHeader>
             <CardTitle>GPA 計算機</CardTitle>
           </CardHeader>

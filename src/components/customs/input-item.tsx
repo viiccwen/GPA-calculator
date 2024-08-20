@@ -9,10 +9,16 @@ interface Props {
 }
 
 export default function InputItem({ target, onChangeCount }: Props) {
-  const [curCount, setcurCount] = useState(0);
+  const [curCount, setcurCount] = useState<string | number>("");
 
   const UpdatedCount = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newCount = parseInt(e.target.value);
+    if(e.target.value === "") {
+      setcurCount(0);
+      onChangeCount(0);
+      return;
+    }
+
+    const newCount: number = parseInt(e.target.value);
     if (newCount < 0) {
       setcurCount(0);
       onChangeCount(0);
