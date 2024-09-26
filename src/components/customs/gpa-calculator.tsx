@@ -8,45 +8,16 @@ import Navbar from "@/components/customs/navbar";
 import { TransformCaptionDialog } from "@/components/customs/transform-caption-dialog";
 import { PointsCaptionDialog } from "@/components/customs/points-cation.dialog";
 import InputItem from "@/components/customs/input-item";
-
-const table = [
-  "A+",
-  "A",
-  "A-",
-  "B+",
-  "B",
-  "B-",
-  "C+",
-  "C",
-  "C-",
-  "D",
-  "E",
-  "F",
-  "X",
-];
-
-const GPAtable: { [key: string]: number } = {
-  "A+": 4.3,
-  "A": 4,
-  "A-": 3.7,
-  "B+": 3.3,
-  "B": 3.0,
-  "B-": 2.7,
-  "C+": 2.3,
-  "C": 2.0,
-  "C-": 1.7,
-  "D": 1.0,
-  "E": 0,
-  "F": 0,
-  "X": 0,
-};
+import { gp_list, GP_table } from "@/lib/pg-table";
+import { gpa_hundred_points } from "@/lib/points";
+import { AlertInfoDialog } from "./alertinfo-dialog";
 
 interface Subject {
   level: string;
   count: number;
 }
 
-const iniLevelArray: Subject[] = table.map((curlevel) => ({
+const iniLevelArray: Subject[] = gp_list.map((curlevel) => ({
   level: curlevel,
   count: 0,
 }));
@@ -55,6 +26,7 @@ export const GPACalculator = () => {
   const [LevelArray, setLevelArray] = useState(iniLevelArray);
   const [sumCredit, setsumCredit] = useState(0);
   const [GPA, setGPA] = useState(0);
+  const [hundredScore, setHundredScore] = useState<string>("");
 
   const HandleChangeCount = (id: number, value: number): void => {
     const updatedSubjects = [...LevelArray];
@@ -72,22 +44,24 @@ export const GPACalculator = () => {
 
     LevelArray.forEach((LevelArray) => {
       totalCredits += LevelArray.count;
-      totalPoints += GPAtable[LevelArray.level] * LevelArray.count;
+      totalPoints += GP_table[LevelArray.level] * LevelArray.count;
     });
 
     if (totalCredits > 0) {
       setsumCredit(totalCredits);
       setGPA(parseFloat((totalPoints / totalCredits).toFixed(2)));
+      const GPA_str = GPA.toString().padEnd(2, ".").padEnd(4, "0");
+      setHundredScore( gpa_hundred_points.get(GPA_str) || "");
     } else {
       setsumCredit(0);
       setGPA(0);
+      setHundredScore("");
     }
-  }, [LevelArray]);
+  }, [LevelArray, GPA]);
 
   return (
     <>
       <Navbar />
-
       <div className="w-full mt-[30px] flex justify-center items-center">
         <Card className="w-[700px] mx-2">
           <CardHeader>
@@ -97,12 +71,13 @@ export const GPACalculator = () => {
             <div className="grid grid-cols-3 gap-1 lg:grid-cols-6">
               <TransformCaptionDialog />
               <PointsCaptionDialog />
+              <AlertInfoDialog />
             </div>
 
-            <div className="mt-[30px]" id="a">
-              總共 {sumCredit} 學分
-              <br />
-              你的 GPA 為：{GPA}
+            <div className="mt-[30px] flex-col">
+              <p>總共 {sumCredit} 學分</p>
+              <p>你的 GPA 為：{GPA}</p>
+              <p>你的百分制分數為：{hundredScore}</p>
             </div>
 
             <div className="mt-[50px] grid grid-cols-3 gap-3">

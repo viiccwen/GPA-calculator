@@ -1,15 +1,13 @@
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/customs/footer";
+import { ex_metadata } from "@/lib/metadata";
+import { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "GPA 計算機",
-  description: "GPA Calculator",
-};
+export const metadata: Metadata = ex_metadata;
 
 export default function RootLayout({
   children,
@@ -18,10 +16,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/icon.ico" />
-        <meta name="google-site-verification" content="Ak3838t63FqFMkRncTmbaAgUn7RwayAv5nnV2eAzfwo" />
-      </head>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
