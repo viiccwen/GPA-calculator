@@ -1,66 +1,19 @@
 "use client";
-
-import { useState, useEffect } from "react";
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import Navbar from "@/components/customs/navbar";
 import { TransformCaptionDialog } from "@/components/customs/transform-caption-dialog";
 import { PointsCaptionDialog } from "@/components/customs/points-cation.dialog";
 import InputItem from "@/components/customs/input-item";
-import { gp_list, GP_table } from "@/lib/pg-table";
-import { gpa_hundred_points } from "@/lib/points";
 import { AlertInfoDialog } from "./alertinfo-dialog";
-
-interface Subject {
-  level: string;
-  count: number;
-}
-
-const iniLevelArray: Subject[] = gp_list.map((curlevel) => ({
-  level: curlevel,
-  count: 0,
-}));
+import { useGPA } from "@/hooks/gpa";
 
 export const GPACalculator = () => {
-  const [LevelArray, setLevelArray] = useState(iniLevelArray);
-  const [sumCredit, setsumCredit] = useState(0);
-  const [GPA, setGPA] = useState(0);
-  const [hundredScore, setHundredScore] = useState<string>("");
-
-  const HandleChangeCount = (id: number, value: number): void => {
-    const updatedSubjects = [...LevelArray];
-    updatedSubjects[id] = {
-      ...updatedSubjects[id],
-      count: value,
-    };
-
-    setLevelArray(updatedSubjects);
-  };
-
-  useEffect(() => {
-    let totalCredits: number = 0;
-    let totalPoints: number = 0;
-
-    LevelArray.forEach((LevelArray) => {
-      totalCredits += LevelArray.count;
-      totalPoints += GP_table[LevelArray.level] * LevelArray.count;
-    });
-
-    if (totalCredits > 0) {
-      setsumCredit(totalCredits);
-      setGPA(parseFloat((totalPoints / totalCredits).toFixed(2)));
-      const GPA_str = GPA.toString().padEnd(2, ".").padEnd(4, "0");
-      setHundredScore( gpa_hundred_points.get(GPA_str) || "");
-    } else {
-      setsumCredit(0);
-      setGPA(0);
-      setHundredScore("");
-    }
-  }, [LevelArray, GPA]);
+  const { LevelArray, sumCredit, GPA, hundredScore, HandleChangeCount } =
+    useGPA();
 
   return (
-    <>
+    <div className="min-h-screen my-5">
       <Navbar />
       <div className="w-full mt-[30px] flex justify-center items-center">
         <Card className="w-[700px] mx-2">
@@ -94,6 +47,6 @@ export const GPACalculator = () => {
           </CardContent>
         </Card>
       </div>
-    </>
+    </div>
   );
 };
