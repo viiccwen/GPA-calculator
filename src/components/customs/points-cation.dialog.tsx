@@ -3,10 +3,7 @@ import {
   Dialog,
   DialogClose,
   DialogContent,
-  DialogDescription,
   DialogFooter,
-  DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 
@@ -19,7 +16,7 @@ export function PointsCaptionDialog() {
       <DialogTrigger asChild>
         <Button variant="outline">積分說明</Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className=" scroll-auto h-[400px]">
         <PointsTable />
         <DialogFooter>
           <DialogClose asChild>
