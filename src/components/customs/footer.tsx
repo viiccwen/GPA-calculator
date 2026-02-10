@@ -17,10 +17,10 @@ export default function Footer() {
         </div>
         <div>
           <a
-            href="https://bento.me/vicwen"
+            href="https://linktr.ee/viiccwen"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Bento"
+            aria-label="Linktree"
           >
             <CircleUserRound strokeWidth={1.5} />
           </a>
