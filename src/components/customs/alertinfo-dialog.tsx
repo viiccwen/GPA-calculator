@@ -1,4 +1,3 @@
-"use client";
 import {
   Dialog,
   DialogClose,
@@ -30,7 +29,9 @@ export function AlertInfoDialog() {
           </div>
           <div className="mt-2">
             <p>不同學校可能有不同的規則</p>
-            <p className=" text-red-500 font-bold mt-2">因此計算機僅供參考，實際成績以學校為準。</p>
+            <p className=" text-red-500 font-bold mt-2">
+              因此計算機僅供參考，實際成績以學校為準。
+            </p>
           </div>
         </div>
         <DialogFooter>

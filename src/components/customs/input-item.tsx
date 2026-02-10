@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { Label } from "@radix-ui/react-label";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
@@ -12,7 +12,7 @@ export default function InputItem({ target, onChangeCount }: Props) {
   const [curCount, setcurCount] = useState<string | number>("");
 
   const UpdatedCount = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if(e.target.value === "") {
+    if (e.target.value === "") {
       setcurCount(0);
       onChangeCount(0);
       return;

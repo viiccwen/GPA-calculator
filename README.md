@@ -45,7 +45,7 @@
   - 剔除非必要計分模式(v1, v3)
   - 將package tool `npm` 改成 `bun`
   - 修改 spaghetti code
-  - 修改計分 table 
+  - 修改計分 table
 - 2024/01/10
   - 更名為：「臺科大 GPA 計算機」
   - 修改 GPA 計算方式（新增 D, E）
