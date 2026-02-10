@@ -46,7 +46,7 @@ export const level_points = [
   },
   {
     level: "D",
-    credit: "0",
+    credit: "1.0",
     grade: "50~59",
   },
   {
