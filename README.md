@@ -17,7 +17,7 @@
 
 ## 如何使用
 
-### [→ 網址點我 ←](https://viiccwen.github.io/GPA-calculator/)
+### [→ 網址點我 ←](https://gpa-calculator.vicwen.app/)
 
 根據積分個數與成績來快速計算 GPA。
 
